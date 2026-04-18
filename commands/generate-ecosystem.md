@@ -34,11 +34,13 @@ Record the returned `workspace_dir` path. All phase artifacts (`spec.json`, `pla
 Spawn sub-agent `requirements-interviewer` with:
 - the user brief (`$ARGUMENTS`) verbatim,
 - the workspace dir path,
-- an instruction: "Write `spec.json` into `<workspace>/spec.json` and return a 10-line summary of the spec."
+- an instruction: "Interview the user via AskUserQuestion (at least 1 round, up to 2), then write `spec.json` into `<workspace>/spec.json` and return a 10-line summary of the spec. Do NOT fabricate requirements from the brief alone — every non-brief field must be grounded in a user answer or an explicit assumption recorded in `spec.json.assumptions`."
 
-**Do not engage the user directly in this phase.** The interviewer owns the conversation. When it returns, read `<workspace>/spec.json` with the Read tool.
-
-If `spec.json` is missing, stop and surface the failure.
+**Hard rules for this phase:**
+- **You (the orchestrator) must NEVER write `spec.json` yourself.** Only the interviewer writes it. If you are tempted to fill it in "because the brief is obvious," stop — spawn the interviewer.
+- **Do not engage the user directly in this phase.** The interviewer owns the conversation.
+- When the interviewer returns, read `<workspace>/spec.json` with the Read tool.
+- If `spec.json` is missing or the interviewer returned without running AskUserQuestion at least once, surface the failure and stop. Do not proceed to Phase 2 with a fabricated spec.
 
 ## Phase 2 — Architecture (you do this yourself)
 
@@ -68,6 +70,12 @@ Ask the user (AskUserQuestion):
 
 Record the choice as `<workspace>/target.json` with fields `{mode: "plugin" | "project", output_path: "..."}`.
 
+**Critical — `output_path` semantics:**
+- **Plugin mode:** `output_path` is the directory that will *contain* the plugin (e.g. `/home/alice/plugins/my-plugin`). The scaffolder creates `.claude-plugin/plugin.json` inside it.
+- **Project mode:** `output_path` is the **repo root**, i.e. the directory that will *contain* `.claude/`. **Never pass `<repo>/.claude` as `output_path`** — the scaffolder appends `.claude/` itself, so `<repo>/.claude` would produce `<repo>/.claude/.claude/` (broken). If the user said "scaffold into my repo at `/path/to/repo`," `output_path` is `/path/to/repo`, not `/path/to/repo/.claude`.
+
+Verify the recorded path before Phase 4 — if project mode and `output_path` ends in `.claude` or `.claude/`, strip the suffix.
+
 ## Phase 4 — Build
 
 Spawn sub-agent `ecosystem-builder` with:
@@ -96,9 +104,9 @@ Report to the user:
 - output path,
 - file count by primitive (commands / agents / skills / MCPs),
 - validation score,
-- next step command:
-  - plugin mode: `claude plugin install <output_path>`
-  - project mode: verify `.claude/` is in the current repo; live detection surfaces the new primitives immediately.
+- **next step — how to actually use the generated ecosystem:**
+  - **Plugin mode:** inside a Claude Code session, run `/plugin marketplace add <output_path>` then `/plugin install <plugin-name>@<marketplace-name>`. The plugin becomes available after installation.
+  - **Project mode:** the files are in `<repo>/.claude/` already. **Claude Code does not detect new project-level commands/agents/skills live inside the current session.** Tell the user: "Close this Claude Code session and open a new one in the same project so the new `/{orchestrator_name}` command is registered." If a `.mcp.json` was written and the user already had one, remind them to merge manually (warnings appear in `build-log.json`).
 
 Keep the summary ≤15 lines. Paths as markdown links.
 

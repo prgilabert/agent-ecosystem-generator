@@ -49,9 +49,11 @@ def render_orchestrator(plan: dict) -> str:
 
 def render_agent(agent: dict) -> str:
     tpl = ASSETS / "plugin-template" / "agents" / "agent.md.tpl"
+    name = agent["name"]  # required — no sensible default
+    description = agent.get("description") or f"Sub-agent {name}. TODO: add a third-person description starting with a verb."
     context = {
-        "agent_name": agent["name"],
-        "agent_description": yaml_quote(agent["description"]),
+        "agent_name": name,
+        "agent_description": yaml_quote(description),
         "agent_tools": _as_yaml_list(agent.get("tools", [])),
         "agent_model": agent.get("model", "sonnet"),
         "agent_role": agent.get("role", ""),
@@ -65,10 +67,12 @@ def render_agent(agent: dict) -> str:
 
 def render_skill(skill: dict) -> str:
     tpl = ASSETS / "plugin-template" / "skills" / "SKILL.md.tpl"
+    name = skill["name"]  # required — no sensible default
+    description = skill.get("description") or f"Skill {name}. TODO: add a trigger-rich description starting with a verb."
     context = {
-        "skill_name": skill["name"],
-        "skill_title": skill.get("title", skill["name"].replace("-", " ").title()),
-        "skill_description": yaml_quote(skill["description"]),
+        "skill_name": name,
+        "skill_title": skill.get("title", name.replace("-", " ").title()),
+        "skill_description": yaml_quote(description),
         "skill_purpose": skill.get("purpose", ""),
         "skill_when_to_use": skill.get("when_to_use", skill.get("trigger", "")),
         "skill_workflow": skill.get("workflow", "Document the steps the skill walks through here."),
