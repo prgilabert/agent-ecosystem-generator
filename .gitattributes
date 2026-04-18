@@ -1,0 +1,30 @@
+# Normalize line endings across platforms.
+# Repo always stores LF; working copies get platform-native endings
+# unless an explicit rule below pins them.
+
+# Default: auto-detect text vs binary; store LF in repo.
+* text=auto
+
+# Source code — always LF in working copy too (tooling expects it).
+*.py   text eol=lf
+*.sh   text eol=lf
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.js   text eol=lf
+*.jsx  text eol=lf
+
+# Config / data — text, platform-native in working copy.
+*.md    text
+*.json  text
+*.yaml  text
+*.yml   text
+*.toml  text
+*.txt   text
+*.tpl   text
+*.cfg   text
+*.ini   text
+
+# Git / CI metadata.
+.gitignore     text
+.gitattributes text
+LICENSE        text
