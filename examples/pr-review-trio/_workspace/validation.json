@@ -1,0 +1,174 @@
+{
+  "status": "fail",
+  "score": 0.9,
+  "iteration": 2,
+  "rules": [
+    {
+      "id": "schema-parse",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\commands\\review-pr.md"
+    },
+    {
+      "id": "schema-parse",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\performance-reviewer.md"
+    },
+    {
+      "id": "schema-parse",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\security-reviewer.md"
+    },
+    {
+      "id": "schema-parse",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\test-reviewer.md"
+    },
+    {
+      "id": "schema-parse",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\skills\\pr-comment-formatter\\SKILL.md"
+    },
+    {
+      "id": "pushy-ness",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\commands\\review-pr.md"
+    },
+    {
+      "id": "pushy-ness",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\performance-reviewer.md"
+    },
+    {
+      "id": "pushy-ness",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\security-reviewer.md"
+    },
+    {
+      "id": "pushy-ness",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\test-reviewer.md"
+    },
+    {
+      "id": "pushy-ness",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\skills\\pr-comment-formatter\\SKILL.md"
+    },
+    {
+      "id": "overlap-tokens",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": ""
+    },
+    {
+      "id": "coverage",
+      "severity": "warning",
+      "passed": false,
+      "details": "sub_tasks with weak coverage (Jaccard<0.15): ['security-check', 'performance-check', 'test-check']",
+      "primitive": ""
+    },
+    {
+      "id": "orchestrator-references-workers",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": ""
+    },
+    {
+      "id": "mcp-wiring",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": ""
+    },
+    {
+      "id": "tool-allowlist-sane",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\performance-reviewer.md"
+    },
+    {
+      "id": "tool-allowlist-sane",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\security-reviewer.md"
+    },
+    {
+      "id": "tool-allowlist-sane",
+      "severity": "error",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\test-reviewer.md"
+    },
+    {
+      "id": "skill-section-completeness",
+      "severity": "warning",
+      "passed": true,
+      "details": "",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\skills\\pr-comment-formatter\\SKILL.md"
+    },
+    {
+      "id": "trigger-eval-firerate",
+      "severity": "error",
+      "passed": true,
+      "details": "firerate=1.0 (hits 10/10, threshold 0.7)",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\commands\\review-pr.md"
+    },
+    {
+      "id": "trigger-eval-firerate",
+      "severity": "error",
+      "passed": false,
+      "details": "firerate=0.5 (hits 5/10, threshold 0.7)",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\skills\\pr-comment-formatter\\SKILL.md"
+    }
+  ],
+  "fix_hints": [
+    {
+      "rule": "trigger-eval-firerate",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\performance-reviewer.md",
+      "suggestion": "Firerate below threshold. Make the description more specific: front-load literal keywords a user would type, include an explicit 'Use when' cue, and add a 'Does NOT cover' disambiguation if it competes with another primitive."
+    },
+    {
+      "rule": "trigger-eval-firerate",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\security-reviewer.md",
+      "suggestion": "Firerate below threshold. Make the description more specific: front-load literal keywords a user would type, include an explicit 'Use when' cue, and add a 'Does NOT cover' disambiguation if it competes with another primitive."
+    },
+    {
+      "rule": "trigger-eval-firerate",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\agents\\test-reviewer.md",
+      "suggestion": "Firerate below threshold. Make the description more specific: front-load literal keywords a user would type, include an explicit 'Use when' cue, and add a 'Does NOT cover' disambiguation if it competes with another primitive."
+    },
+    {
+      "rule": "trigger-eval-firerate",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\skills\\pr-comment-formatter\\SKILL.md",
+      "suggestion": "Firerate below threshold. Make the description more specific: front-load literal keywords a user would type, include an explicit 'Use when' cue, and add a 'Does NOT cover' disambiguation if it competes with another primitive."
+    },
+    {
+      "rule": "trigger-eval-firerate",
+      "primitive": "C:\\Users\\pedro\\AppData\\Local\\Temp\\pr-review-trio-out\\skills\\pr-comment-formatter\\SKILL.md",
+      "suggestion": "Firerate below threshold. Make the description more specific: front-load literal keywords a user would type, include an explicit 'Use when' cue, and add a 'Does NOT cover' disambiguation if it competes with another primitive."
+    }
+  ]
+}

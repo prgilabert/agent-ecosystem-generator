@@ -29,6 +29,12 @@ claude plugin install ./agent-ecosystem-generator
 
 Or just describe what you want — the `ecosystem-generator` skill auto-triggers on phrases like "design a multi-agent system", "build an agent team", "scaffold an orchestrator".
 
+## Examples
+
+See [`examples/`](./examples) for real ecosystems produced by this plugin. Each one is an installable Claude Code plugin you can inspect or `claude plugin install` directly.
+
+- [`examples/pr-review-trio/`](./examples/pr-review-trio) — orchestrator-workers pattern: `/review-pr` orchestrates 3 parallel reviewers (security, performance, tests), aggregates via the `pr-comment-formatter` skill, references the `github` MCP.
+
 ## Improvements over `skill-creator`
 
 | Feature | `skill-creator` | `agent-ecosystem-generator` |

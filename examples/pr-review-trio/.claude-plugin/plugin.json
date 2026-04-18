@@ -1,0 +1,10 @@
+{
+  "name": "pr-review-trio",
+  "description": "Reviews pull requests with three independent checkers (security, performance, tests) and aggregates findings into a single structured comment. Use when the user says \"review PR\", \"audit diff\", or \"ship this\", or whenever a GitHub PR URL is pasted. Does NOT modify code — it only reports findings.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Generated",
+    "email": "noreply@example.com"
+  },
+  "keywords": []
+}

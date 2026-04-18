@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "goal": "Review pull requests with three independent checkers and aggregate feedback",
+  "domain": "PR review",
+  "user_persona": "senior backend engineer opening or reviewing PRs",
+  "primary_trigger_phrases": ["review pr", "ship this", "audit the diff"],
+  "sub_tasks": [
+    {"id": "security-check", "description": "Look for SQL injection, XSS, leaked secrets, insecure auth patterns in the diff", "determinism_critical": false},
+    {"id": "performance-check", "description": "Spot N+1 queries, unnecessary loops, allocation hotspots in the diff", "determinism_critical": false},
+    {"id": "test-check", "description": "Verify each changed module has a test touching the new behaviour", "determinism_critical": false}
+  ],
+  "external_systems": [
+    {"name": "github", "existing_mcp": "@modelcontextprotocol/server-github", "read_or_write": "both"}
+  ],
+  "constraints": {
+    "latency_budget_seconds": 180,
+    "cost_sensitivity": "medium",
+    "privacy": [],
+    "autonomy_limits": ["must never push or merge without confirmation"]
+  },
+  "success_criteria": [
+    "Each checker produces a structured finding list",
+    "Orchestrator aggregates findings into a single PR comment",
+    "No false positives on a golden-set of 10 PRs"
+  ],
+  "assumptions": ["team has gh CLI configured"]
+}
