@@ -46,4 +46,4 @@ See [`examples/`](./examples) for real ecosystems produced by this plugin. Each 
 | Orchestration pattern pick | N/A | Pattern library with justification (5 canonical patterns) |
 | Context isolation | N/A | Interviewer + builder + validator all run in isolated sub-agent ctx |
 
-See [stack_explanation.md](stack_explanation.md) §1–6 for the background.
+See [stack_explanation.md](stack_explanation.md) §1–6 for the background, and [ROADMAP.md](ROADMAP.md) for what's next and where to contribute.
