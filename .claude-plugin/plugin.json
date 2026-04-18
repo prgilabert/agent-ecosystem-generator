@@ -1,0 +1,23 @@
+{
+  "name": "agent-ecosystem-generator",
+  "description": "Generate a validated Claude Code ecosystem (orchestrator + N subagents + M skills + MCPs) from a brief. Use when the user asks to scaffold, bootstrap, or design a multi-agent system, agent team, or orchestration plugin.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Pedro Ruiz Gilabert",
+    "email": "pedroruizgilabert@gmail.com",
+    "url": "https://github.com/prgilabert"
+  },
+  "homepage": "https://github.com/prgilabert/agent-ecosystem-generator",
+  "repository": "https://github.com/prgilabert/agent-ecosystem-generator",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "orchestrator",
+    "subagents",
+    "skills",
+    "mcp",
+    "scaffolding",
+    "plugin-generator",
+    "multi-agent"
+  ]
+}

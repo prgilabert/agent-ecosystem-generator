@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"${CLAUDE_PLUGIN_ROOT}/skills/ecosystem-generator/scripts/_post_write_hook.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

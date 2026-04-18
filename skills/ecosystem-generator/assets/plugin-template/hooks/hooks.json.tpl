@@ -1,0 +1,3 @@
+{
+  "hooks": {{hooks_json}}
+}

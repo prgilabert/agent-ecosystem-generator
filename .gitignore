@@ -1,0 +1,29 @@
+# Claude Code local (user-specific; never shared)
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# Ecosystem-generator runtime workspaces (created by init_workspace.py at runtime)
+.ecosystem-generator/
+
+# Node (for TypeScript MCP scaffolds)
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temp
+*.log
+*.tmp
