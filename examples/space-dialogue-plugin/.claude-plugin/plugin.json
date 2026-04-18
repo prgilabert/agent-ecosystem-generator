@@ -1,0 +1,10 @@
+{
+  "name": "space-dialogue-plugin",
+  "description": "Generates short dramatic-comedy dialogue stories between a fixed astronaut and a robot assistant from a user prompt, saved as a Markdown file. Use when the user invokes /escribe-dialogo or asks to write a space dialogue, relato, or historia with two characters.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Generated",
+    "email": "noreply@example.com"
+  },
+  "keywords": ["creative-writing", "dialogue", "parallel-agents"]
+}

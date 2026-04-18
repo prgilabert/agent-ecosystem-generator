@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "goal": "Generate a short dramatic-comedy dialogue story between an astronaut and a robot assistant, based on a user-provided prompt, saved as a Markdown file.",
+  "domain": "Creative writing / narrative generation",
+  "user_persona": "A casual or hobbyist writer who wants quick, entertaining short-form story content from a simple topic prompt.",
+  "primary_trigger_phrases": [
+    "generate a dialogue",
+    "write a story about",
+    "crea un dialogo sobre",
+    "escribe una historia de",
+    "start a dramatic comedy about"
+  ],
+  "sub_tasks": [
+    {
+      "id": "receive-prompt",
+      "description": "Accept a short user-provided text prompt describing the topic or scenario for the story.",
+      "determinism_critical": true
+    },
+    {
+      "id": "generate-dialogue",
+      "description": "Generate a short dramatic-comedy dialogue between two fixed characters: an astronaut and a robot assistant, grounded in the provided topic.",
+      "determinism_critical": false
+    },
+    {
+      "id": "apply-tone",
+      "description": "Ensure the generated dialogue maintains a dramatic-comedy tone — balancing emotional tension with humor throughout the exchange.",
+      "determinism_critical": false
+    },
+    {
+      "id": "format-as-markdown",
+      "description": "Format the final dialogue story as a well-structured Markdown document with a title, character labels, and dialogue lines.",
+      "determinism_critical": true
+    },
+    {
+      "id": "save-output-file",
+      "description": "Save the Markdown output as a .md file in the workspace directory, with a filename derived from the prompt or a timestamp.",
+      "determinism_critical": true
+    }
+  ],
+  "external_systems": [
+    {
+      "name": "Local filesystem (workspace directory)",
+      "existing_mcp": null,
+      "read_or_write": "write"
+    }
+  ],
+  "constraints": {
+    "latency_budget_seconds": 30,
+    "cost_sensitivity": "low",
+    "privacy": [
+      "No external API calls beyond the LLM provider",
+      "No user data stored outside the workspace directory"
+    ],
+    "autonomy_limits": [
+      "Must not overwrite an existing .md file without warning",
+      "Must not alter any files outside the workspace directory",
+      "Characters are fixed: one astronaut and one robot assistant — do not change them without explicit user instruction"
+    ]
+  },
+  "success_criteria": [
+    "Given a short prompt, a .md file is produced in the workspace directory within 30 seconds.",
+    "The output file contains a clearly formatted dialogue with labeled turns for both the astronaut and the robot assistant.",
+    "The tone of the dialogue reads as dramatic-comedy — reviewable by the user without further editing needed.",
+    "The filename of the output is human-readable and traceable to the triggering prompt or run timestamp."
+  ],
+  "assumptions": [
+    "Output language defaults to Spanish, matching the user's interaction language, unless the prompt is provided in English.",
+    "Story length defaults to approximately 8–14 dialogue exchanges (short form) unless the user specifies otherwise.",
+    "The two characters are always the same: one astronaut (unnamed by default) and one robot assistant (unnamed by default).",
+    "The .md file is saved to the workspace directory root unless a subdirectory is specified by the user.",
+    "Filename convention defaults to 'dialogue-<slug-from-prompt>-<timestamp>.md'.",
+    "No interactive review step is included by default — the file is written in one shot.",
+    "Cost sensitivity is assumed low since output is local and no paid external services beyond the LLM are required."
+  ]
+}

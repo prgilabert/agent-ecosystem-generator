@@ -13,11 +13,14 @@ Reviews pull requests with three independent checkers (security, performance, te
 - Skills: pr-comment-formatter
 - MCPs: github (referenced)
 
-## Install
+## Install (inside a Claude Code session)
 
-```bash
-claude plugin install <path-to-this-directory>
 ```
+/plugin marketplace add <path-to-this-directory>
+/plugin install pr-review-trio@<marketplace-name>
+```
+
+The marketplace name is taken from the `marketplace.json` that Claude Code auto-generates when you register the directory.
 
 ## Usage
 

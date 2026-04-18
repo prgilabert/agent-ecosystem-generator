@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "score": 0.95,
+  "iteration": 4,
+  "rules": [
+    {"id": "schema-parse", "severity": "error", "passed": true, "details": "", "primitive": "commands/escribe-dialogo.md"},
+    {"id": "schema-parse", "severity": "error", "passed": true, "details": "", "primitive": "agents/astronaut-voice.md"},
+    {"id": "schema-parse", "severity": "error", "passed": true, "details": "", "primitive": "agents/dialogue-reviewer.md"},
+    {"id": "schema-parse", "severity": "error", "passed": true, "details": "", "primitive": "agents/plot-writer.md"},
+    {"id": "schema-parse", "severity": "error", "passed": true, "details": "", "primitive": "agents/robot-voice.md"},
+    {"id": "pushy-ness", "severity": "error", "passed": true, "details": "", "primitive": "commands/escribe-dialogo.md"},
+    {"id": "pushy-ness", "severity": "error", "passed": true, "details": "", "primitive": "agents/astronaut-voice.md"},
+    {"id": "pushy-ness", "severity": "error", "passed": true, "details": "", "primitive": "agents/dialogue-reviewer.md"},
+    {"id": "pushy-ness", "severity": "error", "passed": true, "details": "", "primitive": "agents/plot-writer.md"},
+    {"id": "pushy-ness", "severity": "error", "passed": true, "details": "", "primitive": "agents/robot-voice.md"},
+    {"id": "overlap-tokens", "severity": "error", "passed": true, "details": "All agent description pairs have Jaccard token overlap below 0.6 threshold.", "primitive": ""},
+    {"id": "coverage", "severity": "warning", "passed": false, "details": "sub_tasks with weak coverage (Jaccard<0.15): ['receive-prompt', 'generate-dialogue', 'apply-tone', 'format-as-markdown', 'save-output-file']", "primitive": ""},
+    {"id": "orchestrator-references-workers", "severity": "error", "passed": true, "details": "escribe-dialogo.md names all four workers: plot-writer, astronaut-voice, robot-voice, dialogue-reviewer.", "primitive": "commands/escribe-dialogo.md"},
+    {"id": "mcp-wiring", "severity": "error", "passed": true, "details": "no MCPs in plan", "primitive": ""},
+    {"id": "tool-allowlist-sane", "severity": "error", "passed": true, "details": "Bash justified in dialogue-reviewer.md: 'Bash is needed because ls is used for filename conflict detection before writing the output file.'", "primitive": "agents/dialogue-reviewer.md"},
+    {"id": "tool-allowlist-sane", "severity": "error", "passed": true, "details": "", "primitive": "agents/astronaut-voice.md"},
+    {"id": "tool-allowlist-sane", "severity": "error", "passed": true, "details": "", "primitive": "agents/plot-writer.md"},
+    {"id": "tool-allowlist-sane", "severity": "error", "passed": true, "details": "", "primitive": "agents/robot-voice.md"},
+    {"id": "trigger-eval-firerate", "severity": "error", "passed": true, "details": "escribe-dialogo: 10/10 probes fired (rate=1.0, threshold=0.7). Four sub-agents skipped by eval script (agents require orchestrator invocation).", "primitive": "commands/escribe-dialogo.md"},
+    {"id": "semantic-overlap-judgment", "severity": "warning", "passed": true, "details": "astronaut-voice and robot-voice share structural description patterns but are intentionally parallel voice agents for distinct characters. Differentiation is explicit (emotional/mission-jargon vs. deadpan/technical). No redundancy.", "primitive": ""},
+    {"id": "pattern-fit-judgment", "severity": "warning", "passed": true, "details": "plan.md specifies orchestrator-workers. escribe-dialogo orchestrates: plot-writer (sequential phase 1), astronaut-voice + robot-voice (parallel phase 2), dialogue-reviewer (sequential phase 3). Pattern correctly models mixed sequential/parallel workers under a single orchestrator command.", "primitive": ""},
+    {"id": "skill-section-completeness", "severity": "warning", "passed": true, "details": "No SKILL.md files exist (skills: [] in plan). Rule does not apply.", "primitive": ""}
+  ],
+  "fix_hints": []
+}
