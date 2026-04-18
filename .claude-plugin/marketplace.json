@@ -1,0 +1,27 @@
+{
+  "name": "prgilabert-plugins",
+  "owner": {
+    "name": "Pedro Ruiz Gilabert",
+    "email": "pedroruizgilabert@gmail.com",
+    "url": "https://github.com/prgilabert"
+  },
+  "plugins": [
+    {
+      "name": "agent-ecosystem-generator",
+      "source": "./",
+      "description": "Generate a validated Claude Code ecosystem (orchestrator + N subagents + M skills + MCPs) from a brief. Alpha — core flow smoke-tested end-to-end.",
+      "version": "0.1.0",
+      "homepage": "https://github.com/prgilabert/agent-ecosystem-generator",
+      "keywords": [
+        "agents",
+        "orchestrator",
+        "subagents",
+        "skills",
+        "mcp",
+        "scaffolding",
+        "plugin-generator",
+        "multi-agent"
+      ]
+    }
+  ]
+}

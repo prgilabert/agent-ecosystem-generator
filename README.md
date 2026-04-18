@@ -14,12 +14,21 @@ Claude Code plugin that scaffolds a validated **orchestrator + N sub-agents + M 
 
 ## Install
 
-```bash
-# Clone and install from a local path (simplest for v0.1 while Claude Code's
-# plugin installer for git URLs stabilizes):
-git clone https://github.com/prgilabert/agent-ecosystem-generator.git
-claude plugin install ./agent-ecosystem-generator
+Inside a Claude Code session, register this repo as a marketplace and install the plugin:
+
 ```
+/plugin marketplace add prgilabert/agent-ecosystem-generator
+/plugin install agent-ecosystem-generator@prgilabert-plugins
+```
+
+Or, if you've cloned the repo locally:
+
+```
+/plugin marketplace add "/absolute/path/to/agent-ecosystem-generator"
+/plugin install agent-ecosystem-generator@prgilabert-plugins
+```
+
+> `claude plugin install <path>` (the CLI subcommand) resolves names through a registered marketplace — you can't point it at a local directory directly. The two-step flow above is the canonical path for local plugin repos until Claude Code ships first-class local installs.
 
 ## Usage
 
